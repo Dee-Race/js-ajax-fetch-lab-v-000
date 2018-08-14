@@ -8,6 +8,7 @@ function getIssues() {
 }
 
 function showIssues(json) {
+  $("#issues").html(json => getIssues())
 }
 
 function createIssue() {
