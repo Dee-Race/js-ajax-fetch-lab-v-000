@@ -24,10 +24,9 @@ function createIssue() {
     method: 'post',
     body: JSON.stringify(postData),
     headers: {
-      AuthorizationL `token ${getToken()}`
+      Authorization: `token ${getToken()}`
     }
-  }).then(res => res.json())
-    .then(json => console.log(json));
+  }).then(res => res.json()).then(json => console.log(json));
 };
 
 function showResults(json) {
@@ -42,8 +41,7 @@ function forkRepo() {
     headers: {
       Authorization: `token ${getToken()}`
     }
-  }).then(res => res.json())
-    .then(json => console.log(json));
+  }).then(res => res.json()).then(json => console.log(json));
 };
 
 function getToken() {
