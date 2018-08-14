@@ -12,7 +12,23 @@ function showIssues(json) {
 }
 
 function createIssue() {
-}
+  const title = document.getElementById('title').value;
+  const body = document.getElementById('body').value;
+
+  const postData = {
+    title: title, 
+    body: body
+  }
+
+  fetch(`https://api.github.com/repos/javascript-fetch-lab/issues`, {
+    method: 'post',
+    body: JSON.stringify(postData),
+    headers: {
+      AuthorizationL `token ${getToken()}`
+    }
+  }).then(res => res.json())
+    .then(json => console.log(json));
+};
 
 function showResults(json) {
 }
