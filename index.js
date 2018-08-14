@@ -16,7 +16,7 @@ function createIssue() {
   const body = document.getElementById('body').value;
 
   const postData = {
-    title: title, 
+    title: title,
     body: body
   }
 
@@ -31,16 +31,23 @@ function createIssue() {
 };
 
 function showResults(json) {
+  $("#results").html(forkRepo())
 }
 
 function forkRepo() {
   const repo = 'learn-co-curriculum/javascript-fetch-lab'
   //use fetch to fork it!
-}
+  fetch(`https://api.github.com/repos/${repo}/forks`, {
+    method: 'post', 
+    headers: {
+      Authorization: `token ${getToken()}`
+    }
+  }).then(res => res.json())
+    .then(json => console.log(json));
+};
 
 function getToken() {
   //change to your token to run in browser, but set
   //back to '' before committing so all tests pass
-  const token = b6292cf5b048cbf2c98a6558bf4fbfe59bab992f;
   return ''
 }
